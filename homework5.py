@@ -48,7 +48,7 @@ def main():
         x = np.arange(i+1); line.set_data(x, zs[:i+1]); return (line,)
     FuncAnimation(fig_gif, up, frames=len(zs), interval=60, blit=True)\
         .save("slab_walk.gif", writer=PillowWriter(fps=15))
-
+    plt.close(fig_gif)
     t, _, rs, _ = solar_walk(keep=True)
     plt.figure(figsize=(5,4))
     plt.plot(np.arange(len(rs)), rs)
